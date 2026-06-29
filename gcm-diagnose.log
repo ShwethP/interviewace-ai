@@ -1,0 +1,198 @@
+﻿Diagnose log at 2026-06-29T10:24:52Z
+
+AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\mingw64\bin\
+Version: 2.4.1
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 22631)
+Reading environment variables... OK
+ Variables:
+ANDROID_SDK_ROOT=C:\Users\Shweta.Patil\AppData\Local\Android\Sdk
+DriverData=C:\Windows\System32\Drivers\DriverData
+COMPUTERNAME=INBLRNB0029
+UATDATA=C:\Windows\CCM\UATData\D9F8C395-CAB8-491d-B8AC-179A1FE1BE77
+GIT_TRACE2_PARENT_SID=ea2ffb9b-e3b3-490b-ae5b-2310f3045173
+pip3=C:\Python27\Scripts
+SNC_LIB=C:\Program Files (x86)\SAP\FrontEnd\SecureLogin\lib\sapcrypto.dll
+SSF_LIBRARY_PATH=C:\Program Files (x86)\SAP\FrontEnd\SecureLogin\lib\sapcrypto.dll
+HOMEPATH=\Users\Shweta.Patil
+SESSIONNAME=Console
+SNC_LIB_64=C:\Program Files\SAP\FrontEnd\SecureLogin\lib\sapcrypto.dll
+TMP=C:\Users\SHWETA~1.PAT\AppData\Local\Temp
+PROCESSOR_REVISION=ba02
+USERDOMAIN_ROAMINGPROFILE=DELTA
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+TEMP=C:\Users\SHWETA~1.PAT\AppData\Local\Temp
+LOCALAPPDATA=C:\Users\Shweta.Patil\AppData\Local
+MSYSTEM=MINGW64
+SSF_LIBRARY_PATH_64=C:\Program Files\SAP\FrontEnd\SecureLogin\lib\sapcrypto.dll
+ANDROID_HOME=C:\Users\Shweta.Patil\AppData\Local\Android\Sdk
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+ERLANG_HOME=C:\Program Files\Erlang OTP
+ProgramData=C:\ProgramData
+JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot
+USERDOMAIN=DELTA
+MSYS=enable_pcon
+Path=C:/Program Files/Git/mingw64/libexec/git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Shweta.Patil\bin;D:\adb-fresh\platform-tools;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Shweta.Patil\AppData\Local\Programs\Python\Python36;C:\Users\Shweta.Patil\AppData\Local\Programs\Python\Python36\Scripts;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Users\Shweta.Patil\AppData\Roaming\nvm;C:\Program Files\nodejsX;C:\Program Files\PowerShell\7\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\MongoDB\Server\4.2\bin;C:\sqlite\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\php\php-8.3.20-Win32-vs16-x64;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Users\Shweta.Patil\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\Shweta.Patil\AppData\Local\Programs\Python\Python314\;C:\Users\Shweta.Patil\AppData\Local\Programs\Python\Python36\Scripts;C:\Users\Shweta.Patil\AppData\Local\Programs\Python\Python36;D:\adb-fresh\platform-tools;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Users\Shweta.Patil\AppData\Roaming\nvm;C:\Program Files\nodejsX;C:\Program Files\PowerShell\7\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\MongoDB\Server\4.2\bin;C:\sqlite\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\php\php-8.3.20-Win32-vs16-x64;C:\Use;C:\Users\Shweta.Patil\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Shweta.Patil\.dotnet\tools;C:\Users\Shweta.Patil\AppData\Local\Programs\Antigravity\bin;C:\Users\Shweta.Patil\AppData\Local\PowerToys\DSCModules\
+USERDNSDOMAIN=DELTA.CORP
+POWERSHELL_DISTRIBUTION_CHANNEL=MSI:Windows 10 Enterprise
+PROCESSOR_LEVEL=6
+NUMBER_OF_PROCESSORS=20
+Python=C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7
+PROMPT=$P$G
+ProgramFiles(x86)=C:\Program Files (x86)
+PUBLIC=C:\Users\Public
+CommonProgramFiles=C:\Program Files (x86)\Common Files
+TERM=xterm-256color
+PLINK_PROTOCOL=ssh
+COLORTERM=truecolor
+ADB_EXECUTABLE=D:\adb-fresh\platform-tools\adb.exe
+GIT_PAGER=cat
+ProgramFiles=C:\Program Files (x86)
+EFC_40028=1
+TMPDIR=C:\Users\SHWETA~1.PAT\AppData\Local\Temp
+ProgramW6432=C:\Program Files
+NVM_SYMLINK=C:\Program Files\nodejsX
+NVM_HOME=C:\Users\Shweta.Patil\AppData\Roaming\nvm
+HOME=C:\Users\Shweta.Patil
+LC_CTYPE=C.UTF-8
+CommonProgramW6432=C:\Program Files\Common Files
+LOGONSERVER=\\INBLRDCS03
+USERPROFILE=C:\Users\Shweta.Patil
+SystemRoot=C:\WINDOWS
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+APPDATA=C:\Users\Shweta.Patil\AppData\Roaming
+HOMEDRIVE=C:
+PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+USERNAME=Shweta.Patil
+PROCESSOR_ARCHITEW6432=AMD64
+PROCESSOR_ARCHITECTURE=x86
+OS=Windows_NT
+ComSpec=C:\WINDOWS\system32\cmd.exe
+SystemDrive=C:
+windir=C:\WINDOWS
+ALLUSERSPROFILE=C:\ProgramData
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\Shweta.Patil\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\Shweta.Patil\AppData\Local\Temp\c9bf4112abcd9e796f5cf53a'... OK
+Reading from temporary file 'C:\Users\Shweta.Patil\AppData\Local\Temp\c9bf4112abcd9e796f5cf53a'... OK
+Deleting temporary file 'C:\Users\Shweta.Patil\AppData\Local\Temp\c9bf4112abcd9e796f5cf53a'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\Shweta.Patil
+UserDataDirectoryPath: C:\Users\Shweta.Patil\.gcm
+GetCurrentDirectory(): D:\NextProject1\ai-interview-platform
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:57250/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.44.0.windows.1'
+Locating current repository... OK
+Git repository at 'D:/NextProject1/ai-interview-platform/.git'
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=openssl
+file:C:/Program Files/Git/etc/gitconfig	http.sslcainfo=C:/Program Files/Git/mingw64/etc/ssl/certs/ca-bundle.crt
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=false
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/Shweta.Patil/.gitconfig	user.name=Shweta.Patil
+file:C:/Users/Shweta.Patil/.gitconfig	user.email=shweta.patil@deltaww.com
+file:C:/Users/Shweta.Patil/.gitconfig	credential.https://sgc-scm.deltaww.com.provider=generic
+file:C:/Users/Shweta.Patil/.gitconfig	core.autocrlf=false
+file:C:/Users/Shweta.Patil/.gitconfig	http.version=HTTP/1.1
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/ShwethP/IntervieAce-AI.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+file:.git/config	lfs.repositoryformatversion=0
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\Shweta.Patil\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\Shweta.Patil\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
