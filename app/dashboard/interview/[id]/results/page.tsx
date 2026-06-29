@@ -36,7 +36,7 @@ export default async function ResultsPage({
         totalQuestions === 0
             ? 0
             : interview.questions.reduce(
-                (sum, q) => sum + (q.score ?? 0),
+                (sum: any, q: any) => sum + (q.score ?? 0),
                 0
             ) / totalQuestions;
 
