@@ -1,14 +1,10 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
+import authConfig from "./auth.config";
+
 import { prisma } from "@/lib/prisma";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-    providers: [
-        Google({
-            clientId: process.env.AUTH_GOOGLE_ID!,
-            clientSecret: process.env.AUTH_GOOGLE_SECRET!,
-        }),
-    ],
+    ...authConfig,
 
     callbacks: {
         async signIn({ user }) {
@@ -19,12 +15,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 where: {
                     email: user.email,
                 },
-
                 update: {
                     name: user.name ?? undefined,
                     image: user.image ?? undefined,
                 },
-
                 create: {
                     email: user.email,
                     name: user.name,
@@ -33,20 +27,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             });
 
             return true;
-        },
-        async session({ session }) {
-            console.log("SESSION");
-            console.log(session);
-
-            return session;
-        },
-        async jwt({ token }) {
-
-            console.log("JWT");
-
-            console.log(token);
-
-            return token;
         },
     },
 });
