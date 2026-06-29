@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+
+  id String @id @default(cuid())
+
+  email String @unique
+
+  name String?
+
+  image String?
+
+  interviews Interview[]
+
+  resumes Resume[]
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+}
+
+model Resume {
+  id String @id @default(cuid())
+
+  fileUrl String
+
+  atsScore Int?
+
+  strengths String[]
+
+  improvements String[]
+
+  missingSkills String[]
+
+  overallFeedback String?
+
+  extractedText String?
+
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Interview {
+
+  id String @id @default(cuid())
+
+  company String
+
+  role String
+
+  experience Int
+
+  difficulty String
+
+  interviewType String
+
+  techStack String
+
+  status String @default("NOT_STARTED")
+
+  overallScore Int?
+
+  overallFeedback String?
+
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
+
+  interview Interview @relation(fields: [interviewId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
+
+model InterviewQuestion {
+
+  id String @id @default(cuid())
+
+  question String
+
+  category String
+
+  difficulty String
+
+  answer String?
+
+  feedback String?
+
+  idealAnswer String?
+
+  score Int?
+
+  interviewId String
+
+  interview Interview @relation(fields: [interviewId], references: [id])
+
+  createdAt DateTime @default(now())
+}
