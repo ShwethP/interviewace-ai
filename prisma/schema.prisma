@@ -76,7 +76,7 @@ model Interview {
 
   user User @relation(fields: [userId], references: [id])
 
-  interview Interview @relation(fields: [interviewId], references: [id], onDelete: Cascade)
+  questions InterviewQuestion[]
 
   createdAt DateTime @default(now())
 }
