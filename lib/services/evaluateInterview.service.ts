@@ -23,7 +23,7 @@ export async function evaluateInterviewService(
         role: interview.role,
         difficulty: interview.difficulty,
         interviewType: interview.interviewType,
-        questions: interview.questions.map((q) => ({
+        questions: interview.questions.map((q: any) => ({
             id: q.id,
             question: q.question,
             answer: q.answer ?? "",
