@@ -1,20 +1,16 @@
 import NextAuth from "next-auth";
 import authConfig from "./auth.config";
-
 import { prisma } from "@/lib/prisma";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
     ...authConfig,
 
     callbacks: {
         async signIn({ user }) {
-
             if (!user.email) return false;
 
             await prisma.user.upsert({
-                where: {
-                    email: user.email,
-                },
+                where: { email: user.email },
                 update: {
                     name: user.name ?? undefined,
                     image: user.image ?? undefined,
