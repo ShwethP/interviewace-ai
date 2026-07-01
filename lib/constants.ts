@@ -4,7 +4,7 @@ export const HERO = {
         "Practice company-specific interviews, analyze your resume, and receive personalized AI feedback—all in one platform.",
     primaryButton: {
         text: "Start for Free",
-        href: "/register",
+        href: "/login",
     },
     secondaryButton: {
         text: "Explore Guides",

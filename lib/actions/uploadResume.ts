@@ -25,6 +25,9 @@ export async function uploadResume(formData: FormData) {
 
     const file = formData.get("resume") as File;
 
+    const jobDescription =
+        (formData.get("jobDescription") as string)?.trim() || null;
+
     if (!file) {
         throw new Error("No file uploaded");
     }
@@ -49,6 +52,9 @@ export async function uploadResume(formData: FormData) {
         data: {
             fileUrl: uploadResult.secure_url,
             userId: user.id,
+
+            // temporary
+            jobDescription,
         },
     });
 

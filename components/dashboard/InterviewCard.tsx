@@ -1,4 +1,10 @@
 import Link from "next/link";
+import {
+    CalendarDays,
+    Clock3,
+    ArrowRight,
+    Trophy,
+} from "lucide-react";
 import DeleteInterviewButton from "./DeleteInterviewButton";
 
 interface Props {
@@ -17,6 +23,8 @@ export default function InterviewCard({
     interview,
 }: Props) {
 
+    const created = new Date(interview.createdAt);
+
     return (
 
         <Link
@@ -25,27 +33,43 @@ export default function InterviewCard({
                     ? `/dashboard/interview/${interview.id}/results`
                     : `/dashboard/interview/${interview.id}`
             }
-            className="block rounded-xl border p-6 transition hover:shadow-lg"
         >
 
-            <div className="flex items-center justify-between">
+            <div className="mt-4 group rounded-3xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
-                <div>
+                <div className="flex items-start justify-between">
 
-                    <h3 className="text-xl font-semibold">
-                        {interview.company}
-                    </h3>
+                    <div>
 
-                    <p className="text-gray-500">
-                        {interview.role}
-                    </p>
+                        <h2 className="text-2xl font-bold">
+                            {interview.company}
+                        </h2>
 
-                </div>
+                        <p className="mt-1 text-gray-500">
+                            {interview.role}
+                        </p>
 
-                <div className="flex items-center gap-3">
+                        <div className="mt-4 flex flex-wrap gap-4 text-sm text-gray-500">
+
+                            <div className="flex items-center gap-2">
+                                <CalendarDays size={16} />
+                                {created.toLocaleDateString()}
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <Clock3 size={16} />
+                                {created.toLocaleTimeString([], {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                })}
+                            </div>
+
+                        </div>
+
+                    </div>
 
                     <span
-                        className={`rounded-full px-3 py-1 text-sm ${interview.status === "COMPLETED"
+                        className={`rounded-full px-4 py-2 text-sm font-semibold ${interview.status === "COMPLETED"
                             ? "bg-green-100 text-green-700"
                             : "bg-yellow-100 text-yellow-700"
                             }`}
@@ -53,46 +77,91 @@ export default function InterviewCard({
                         {interview.status}
                     </span>
 
-                    <DeleteInterviewButton
-                        interviewId={interview.id}
-                    />
-
                 </div>
 
-            </div>
+                <div className="mt-6 flex flex-wrap gap-2">
 
-            <div className="mt-6 flex justify-between">
-
-                <span
-                    className={`rounded-full px-3 py-1 text-sm font-medium
-    ${interview.difficulty === "Easy"
+                    <span
+                        className={`rounded-full px-3 py-1 text-xs font-semibold ${interview.difficulty === "Easy"
                             ? "bg-green-100 text-green-700"
                             : interview.difficulty === "Medium"
                                 ? "bg-yellow-100 text-yellow-700"
                                 : "bg-red-100 text-red-700"
-                        }`}
-                >
-                    {interview.difficulty}
-                </span>
+                            }`}
+                    >
+                        {interview.difficulty}
+                    </span>
 
-                <span>
-                    <div className="text-right">
+                    {interview.techStack
+                        ?.split(",")
+                        .slice(0, 4)
+                        .map((tech: string) => (
 
-                        <p className="text-sm text-gray-500">
-                            Score
-                        </p>
+                            <span
+                                key={tech}
+                                className="rounded-full bg-slate-100 px-3 py-1 text-xs"
+                            >
+                                {tech.trim()}
+                            </span>
 
-                        <p className="text-2xl font-bold">
-                            {interview.overallScore ?? "--"}
-                        </p>
+                        ))}
+
+                </div>
+
+                <div className="mt-8 flex items-center justify-between">
+                    <DeleteInterviewButton interviewId={interview.id} />
+
+                    {interview.status === "COMPLETED" ? (
+
+                        <div>
+
+                            <p className="text-sm text-gray-500">
+                                Overall Score
+                            </p>
+
+                            <div className="mt-2 flex items-center gap-2">
+
+                                <Trophy className="text-yellow-500" />
+
+                                <span className="text-3xl font-bold">
+                                    {interview.overallScore}/100
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    ) : (
+
+                        <div>
+
+                            <p className="text-sm text-gray-500">
+                                Interview Ready
+                            </p>
+
+                            <p className="mt-2 text-xl font-semibold">
+                                Continue Practice
+                            </p>
+
+                        </div>
+
+                    )}
+
+                    <div className="flex items-center gap-2 font-semibold text-blue-600">
+
+                        {interview.status === "COMPLETED"
+                            ? "View Results"
+                            : "Continue"}
+
+                        <ArrowRight className="transition group-hover:translate-x-2" />
 
                     </div>
-                </span>
+
+                </div>
 
             </div>
 
         </Link>
 
     );
-
 }

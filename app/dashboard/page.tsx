@@ -3,10 +3,17 @@ import { redirect } from "next/navigation";
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import StatsCard from "@/components/dashboard/StatsCard";
-import StartInterviewButton from "@/components/dashboard/StartInterviewButton";
 import { getDashboardStats } from "@/lib/dashboard";
 import InterviewCard from "@/components/dashboard/InterviewCard";
-import ResumeButton from "@/components/dashboard/ResumeButton";
+import QuickActions from "@/components/dashboard/QuickActions";
+import {
+    BriefcaseBusiness,
+    FileText,
+    Trophy,
+    Target,
+    Sparkles,
+    Brain,
+} from "lucide-react";
 
 export default async function DashboardPage() {
     const session = await auth();
@@ -26,44 +33,58 @@ export default async function DashboardPage() {
             <DashboardHeader
                 name={data.user.name ?? "User"}
                 image={data.user.image}
+                interviews={data.totalInterviews}
+                resumes={data.totalResumes}
             />
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
                 <StatsCard
                     title="Interviews"
                     value={data.totalInterviews}
+                    subtitle="Completed & Upcoming"
+                    icon={<BriefcaseBusiness size={28} />}
                 />
 
                 <StatsCard
                     title="Resumes"
                     value={data.totalResumes}
+                    subtitle="Uploaded"
+                    icon={<FileText size={28} />}
                 />
 
                 <StatsCard
                     title="Avg Interview"
                     value={`${data.averageInterviewScore}%`}
+                    subtitle="Performance"
+                    icon={<Brain size={28} />}
                 />
 
                 <StatsCard
                     title="Best Score"
                     value={`${data.bestInterviewScore}%`}
+                    subtitle="Highest"
+                    icon={<Trophy size={28} />}
                 />
 
                 <StatsCard
-                    title="Avg ATS"
+                    title="ATS Score"
                     value={`${data.averageResumeScore}%`}
+                    subtitle="Average Resume"
+                    icon={<Target size={28} />}
                 />
 
                 <StatsCard
                     title="AI Credits"
                     value={25}
+                    subtitle="Remaining"
+                    icon={<Sparkles size={28} />}
                 />
             </div>
             <div className="mt-10 flex gap-4">
 
-                <StartInterviewButton />
-
-                <ResumeButton />
+                <div className="mt-10">
+                    <QuickActions />
+                </div>
 
             </div>
             <section className="mt-12">
@@ -88,7 +109,7 @@ export default async function DashboardPage() {
 
                 ) : (
 
-                    <div className="max-h-[550px] space-y-5 overflow-y-auto pr-2">
+                    <div className="max-h-[700px] space-y-8 overflow-y-auto pr-3">
 
                         {data.interviews.map((interview: any) => (
 

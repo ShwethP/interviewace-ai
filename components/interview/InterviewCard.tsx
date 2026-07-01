@@ -1,15 +1,21 @@
 import Link from "next/link";
+import {
+    Calendar,
+    Clock3,
+    Trophy,
+    Code2,
+    Building2,
+    ArrowRight,
+} from "lucide-react";
 
 interface Props {
     interview: any;
 }
 
-export default function InterviewCard({
-    interview,
-}: Props) {
+export default function InterviewCard({ interview }: Props) {
+    const created = new Date(interview.createdAt);
 
     return (
-
         <Link
             href={
                 interview.status === "COMPLETED"
@@ -17,75 +23,115 @@ export default function InterviewCard({
                     : `/dashboard/interview/${interview.id}`
             }
         >
+            <div className="group rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-black hover:shadow-xl">
 
-            <div className="rounded-xl border bg-white p-6 shadow-sm transition hover:shadow-lg">
+                {/* Header */}
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-start justify-between">
 
-                    <div>
+                    <div className="flex gap-4">
 
-                        <h2 className="text-xl font-bold">
-                            {interview.company}
-                        </h2>
+                        <div className="rounded-xl bg-black p-3 text-white">
+                            <Building2 size={22} />
+                        </div>
 
-                        <p className="mt-1 text-gray-500">
-                            {interview.role}
-                        </p>
-                        <p className="mt-2 text-sm text-gray-400">
-                            {new Date(interview.createdAt).toLocaleDateString()}
-                        </p>
+                        <div>
+
+                            <h2 className="text-xl font-bold">
+                                {interview.company}
+                            </h2>
+
+                            <p className="mt-1 text-gray-500">
+                                {interview.role}
+                            </p>
+
+                        </div>
 
                     </div>
 
-                    <div className="text-right">
+                    <span
+                        className={`rounded-full px-4 py-1 text-xs font-semibold ${interview.status === "COMPLETED"
+                            ? "bg-green-100 text-green-700"
+                            : "bg-yellow-100 text-yellow-700"
+                            }`}
+                    >
+                        {interview.status}
+                    </span>
 
-                        <span
-                            className={`rounded-full px-3 py-1 text-sm font-semibold text-white ${interview.status === "COMPLETED"
-                                ? "bg-green-600"
-                                : "bg-yellow-500"
-                                }`}
-                        >
-                            {interview.status}
-                        </span>
+                </div>
 
-                        {interview.status === "COMPLETED" && (
+                {/* Date */}
 
-                            <p className="mt-3 text-3xl font-bold">
-                                {interview.overallScore}/100
-                            </p>
+                <div className="mt-6 flex flex-wrap gap-6 text-sm text-gray-500">
 
-                        )}
+                    <div className="flex items-center gap-2">
+                        <Calendar size={16} />
+                        {created.toLocaleDateString("en-IN", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                        })}
+                    </div>
 
+                    <div className="flex items-center gap-2">
+                        <Clock3 size={16} />
+                        {created.toLocaleTimeString("en-IN", {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                        })}
                     </div>
 
                 </div>
 
-                <div className="mt-6 flex justify-between text-gray-500">
+                {/* Footer */}
 
-                    <span
-                        className={`rounded-full px-3 py-1 text-xs font-semibold text-white ${interview.difficulty === "Easy"
-                            ? "bg-green-500"
-                            : interview.difficulty === "Medium"
-                                ? "bg-yellow-500"
-                                : "bg-red-600"
-                            }`}
-                    >
-                        {interview.difficulty}
-                    </span>
+                <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
 
-                    <p
-                        className="max-w-xs truncate text-sm text-gray-500"
-                        title={interview.techStack}
-                    >
-                        {interview.techStack}
-                    </p>
+                    <div className="flex items-center gap-3">
+
+                        <span
+                            className={`rounded-full px-3 py-1 text-xs font-semibold ${interview.difficulty === "Easy"
+                                ? "bg-green-100 text-green-700"
+                                : interview.difficulty === "Medium"
+                                    ? "bg-yellow-100 text-yellow-700"
+                                    : "bg-red-100 text-red-700"
+                                }`}
+                        >
+                            {interview.difficulty}
+                        </span>
+
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Code2 size={15} />
+                            <span className="max-w-[250px] truncate">
+                                {interview.techStack}
+                            </span>
+                        </div>
+
+                    </div>
+
+                    {interview.status === "COMPLETED" ? (
+                        <div className="flex items-center gap-2">
+
+                            <Trophy
+                                size={18}
+                                className="text-yellow-500"
+                            />
+
+                            <span className="text-2xl font-bold">
+                                {interview.overallScore}/100
+                            </span>
+
+                        </div>
+                    ) : (
+                        <div className="flex items-center gap-2 font-medium text-black transition group-hover:translate-x-1">
+                            Continue
+                            <ArrowRight size={18} />
+                        </div>
+                    )}
 
                 </div>
 
             </div>
-
         </Link>
-
     );
-
 }

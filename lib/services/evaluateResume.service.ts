@@ -21,7 +21,10 @@ export async function evaluateResumeService(
         resume.fileUrl
     );
 
-    const result = await evaluateResume(text);
+    const result = await evaluateResume(
+        text,
+        resume.jobDescription ?? undefined
+    );
     console.log('result to database*****************', result);
 
     try {
@@ -31,11 +34,21 @@ export async function evaluateResumeService(
             },
             data: {
                 extractedText: text,
-                atsScore: result.atsScore,
-                strengths: result.strengths,
-                improvements: result.improvements,
-                missingSkills: result.missingSkills,
-                overallFeedback: result.overallFeedback,
+
+                atsScore: result.atsScore ?? 0,
+                jobMatchScore: result.jobMatchScore ?? 0,
+                shortlistChance:
+                    result.shortlistChance,
+
+                recruiterSummary:
+                    result.recruiterSummary,
+                strengths: result.strengths ?? [],
+                improvements: result.improvements ?? [],
+                missingSkills: result.missingSkills ?? [],
+
+                interviewPreparation: result.interviewPreparation ?? [],
+                likelyQuestions: result.likelyQuestions ?? [],
+
             },
         });
     } catch (e) {

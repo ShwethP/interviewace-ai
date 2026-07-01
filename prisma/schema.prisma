@@ -32,16 +32,23 @@ model Resume {
   fileUrl String
 
   atsScore Int?
+  jobMatchScore Int?
+  shortlistChance Int?
+
+  recruiterSummary String?
 
   strengths String[]
-
   improvements String[]
-
   missingSkills String[]
+
+  interviewPreparation String[]
+  likelyQuestions String[]
 
   overallFeedback String?
 
   extractedText String?
+
+  jobDescription String?
 
   userId String
 

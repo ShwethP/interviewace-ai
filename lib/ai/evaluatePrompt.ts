@@ -1,19 +1,19 @@
 interface EvaluationInput {
-    company: string;
-    role: string;
-    interviewType: string;
-    difficulty: string;
-    questions: {
-        id: string;
-        question: string;
-        answer: string;
-    }[];
+  company: string;
+  role: string;
+  interviewType: string;
+  difficulty: string;
+  questions: {
+    id: string;
+    question: string;
+    answer: string;
+  }[];
 }
 
 export function buildEvaluationPrompt(
-    data: EvaluationInput
+  data: EvaluationInput
 ) {
-    return `
+  return `
 You are a Senior Software Engineering interviewer.
 
 Evaluate the candidate professionally.

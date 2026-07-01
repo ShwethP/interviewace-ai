@@ -1,7 +1,12 @@
 import { z } from "zod";
 
 export const ResumeSchema = z.object({
+
     atsScore: z.number(),
+
+    jobMatchScore: z.number(),
+
+    shortlistChance: z.number(),
 
     strengths: z.array(z.string()),
 
@@ -9,7 +14,13 @@ export const ResumeSchema = z.object({
 
     missingSkills: z.array(z.string()),
 
-    overallFeedback: z.string(),
+    interviewPreparation: z.array(z.string()),
+
+    likelyQuestions: z.array(z.string()),
+
+    recruiterSummary: z.string(),
+
+
 });
 
 export type ResumeResponse =
