@@ -4,7 +4,16 @@ export async function extractResumeText(
     fileUrl: string
 ): Promise<string> {
 
+    console.log("Downloading:", fileUrl);
+
     const response = await fetch(fileUrl);
+
+    console.log("Status:", response.status);
+    console.log("Status Text:", response.statusText);
+
+    if (!response.ok) {
+        throw new Error("Failed to download resume");
+    }
 
     if (!response.ok) {
         throw new Error("Failed to download resume");
