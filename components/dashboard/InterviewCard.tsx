@@ -92,7 +92,7 @@ export default function InterviewCard({
                         {interview.difficulty}
                     </span>
 
-                    {interview.techStack
+                    {/* {interview.techStack
                         ?.split(",")
                         .slice(0, 4)
                         .map((tech: string) => (
@@ -104,7 +104,7 @@ export default function InterviewCard({
                                 {tech.trim()}
                             </span>
 
-                        ))}
+                        ))} */}
 
                 </div>
 
