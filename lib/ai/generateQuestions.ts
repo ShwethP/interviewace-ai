@@ -23,7 +23,9 @@ export async function generateQuestions(
     for (let i = 0; i < 3; i++) {
         try {
             const response = await ai.chat.completions.create({
-                model: "openai/gpt-oss-20b:free",
+                // model: "openai/gpt-oss-20b:free",
+                model: "openrouter/free",
+
 
                 messages: [
                     {

@@ -1,27 +1,39 @@
+import fs from "fs";
+import path from "path";
 import PDFParser from "pdf2json";
+
+function getLocalPath(fileUrl: string): string {
+    // If it's already an absolute Windows path (e.g. D:\... or C:\...)
+    if (/^[a-zA-Z]:[/\\]/.test(fileUrl)) {
+        return fileUrl;
+    }
+    // Remove any leading slashes or backslashes
+    const cleanPath = fileUrl.replace(/^[/\\]+/, "");
+    return path.join(process.cwd(), "public", cleanPath);
+}
 
 export async function extractResumeText(
     fileUrl: string
 ): Promise<string> {
 
-    console.log("Downloading:", fileUrl);
+    let buffer: Buffer;
 
-    const response = await fetch(fileUrl);
+    if (fileUrl.startsWith("http://") || fileUrl.startsWith("https://")) {
+        console.log("Downloading remote resume:", fileUrl);
 
-    console.log("Status:", response.status);
-    console.log("Status Text:", response.statusText);
+        const response = await fetch(fileUrl);
 
-    if (!response.ok) {
-        throw new Error("Failed to download resume");
+        if (!response.ok) {
+            throw new Error(`Failed to download resume (status ${response.status})`);
+        }
+
+        buffer = Buffer.from(await response.arrayBuffer());
+    } else {
+        const localPath = getLocalPath(fileUrl);
+        console.log("Reading local resume from:", localPath);
+
+        buffer = await fs.promises.readFile(localPath);
     }
-
-    if (!response.ok) {
-        throw new Error("Failed to download resume");
-    }
-
-    const buffer = Buffer.from(
-        await response.arrayBuffer()
-    );
 
     return new Promise((resolve, reject) => {
 

@@ -1,3 +1,12 @@
 import { handlers } from "@/auth";
+import type { NextRequest } from "next/server";
 
-export const { GET, POST } = handlers;
+export const dynamic = "force-dynamic";
+
+export async function GET(request: NextRequest) {
+    return handlers.GET(request);
+}
+
+export async function POST(request: NextRequest) {
+    return handlers.POST(request);
+}

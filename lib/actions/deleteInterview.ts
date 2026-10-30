@@ -35,11 +35,18 @@ export async function deleteInterview(
         throw new Error("Interview not found");
     }
 
-    await prisma.interview.delete({
-        where: {
-            id: interviewId,
-        },
-    });
+    await prisma.$transaction([
+        prisma.interviewQuestion.deleteMany({
+            where: {
+                interviewId,
+            },
+        }),
+        prisma.interview.delete({
+            where: {
+                id: interviewId,
+            },
+        }),
+    ]);
 
     revalidatePath("/dashboard");
 }

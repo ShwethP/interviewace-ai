@@ -13,7 +13,7 @@ export async function evaluateResume(
     );
 
     const response = await ai.chat.completions.create({
-        model: "openai/gpt-oss-20b:free",
+        model: "openrouter/free",
         response_format: {
             type: "json_object",
         },

@@ -24,7 +24,7 @@ export async function evaluateInterview(
     const prompt = buildEvaluationPrompt(data);
 
     const response = await ai.chat.completions.create({
-        model: "openai/gpt-oss-20b:free",
+        model: "openrouter/free",
         messages: [
             {
                 role: "user",

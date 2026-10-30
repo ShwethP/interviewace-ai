@@ -1,6 +1,29 @@
 "use client";
 
+import { useFormStatus } from "react-dom";
+import { Loader2 } from "lucide-react";
 import { uploadResume } from "@/lib/actions/uploadResume";
+
+function SubmitButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button
+            type="submit"
+            disabled={pending}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-black py-4 text-lg font-semibold text-white transition hover:scale-[1.01] hover:bg-gray-800 active:scale-100 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+            {pending ? (
+                <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Uploading & Preparing Analysis...
+                </>
+            ) : (
+                "Analyze Resume"
+            )}
+        </button>
+    );
+}
 
 export default function ResumeUploadForm() {
     return (
@@ -25,7 +48,7 @@ export default function ResumeUploadForm() {
             <div>
                 <label className="mb-2 block text-sm font-semibold">
                     Job Description
-                    <span className="ml-2 text-gray-500 font-normal">
+                    <span className="ml-2 font-normal text-gray-500">
                         (Optional)
                     </span>
                 </label>
@@ -38,12 +61,7 @@ export default function ResumeUploadForm() {
                 />
             </div>
 
-            <button
-                type="submit"
-                className="w-full rounded-xl bg-black py-4 text-lg font-semibold text-white transition hover:scale-[1.01] hover:bg-gray-800 active:scale-100"
-            >
-                Analyze Resume
-            </button>
+            <SubmitButton />
         </form>
     );
 }
