@@ -102,8 +102,8 @@ export default async function ResumePage({
                                 (resume.jobMatchScore ?? 0) >= 80
                                     ? "text-green-600"
                                     : (resume.jobMatchScore ?? 0) >= 60
-                                        ? "text-yellow-500"
-                                        : "text-red-500"
+                                        ? "text-6xl font-bold text-yellow-500"
+                                        : "text-6xl font-boldtext-red-500"
                             }
                         >
                             {resume.jobMatchScore ?? "--"}

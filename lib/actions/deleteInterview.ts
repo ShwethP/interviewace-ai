@@ -49,4 +49,5 @@ export async function deleteInterview(
     ]);
 
     revalidatePath("/dashboard");
+    revalidatePath("/dashboard/interviews");
 }

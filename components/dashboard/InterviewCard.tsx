@@ -5,6 +5,7 @@ import {
     ArrowRight,
     Trophy,
 } from "lucide-react";
+
 import DeleteInterviewButton from "./DeleteInterviewButton";
 
 interface Props {
@@ -19,23 +20,22 @@ interface Props {
     };
 }
 
-export default function InterviewCard({
-    interview,
-}: Props) {
+export default function InterviewCard({ interview }: Props) {
 
     const created = new Date(interview.createdAt);
 
+    const interviewUrl =
+        interview.status === "COMPLETED"
+            ? `/dashboard/interview/${interview.id}/results`
+            : `/dashboard/interview/${interview.id}`;
+
     return (
 
-        <Link
-            href={
-                interview.status === "COMPLETED"
-                    ? `/dashboard/interview/${interview.id}/results`
-                    : `/dashboard/interview/${interview.id}`
-            }
-        >
+        <div className="mt-4 group rounded-3xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
-            <div className="mt-4 group rounded-3xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            {/* Interview information - clickable */}
+
+            <Link href={interviewUrl} className="block">
 
                 <div className="flex items-start justify-between">
 
@@ -70,8 +70,8 @@ export default function InterviewCard({
 
                     <span
                         className={`rounded-full px-4 py-2 text-sm font-semibold ${interview.status === "COMPLETED"
-                            ? "bg-green-100 text-green-700"
-                            : "bg-yellow-100 text-yellow-700"
+                                ? "bg-green-100 text-green-700"
+                                : "bg-yellow-100 text-yellow-700"
                             }`}
                     >
                         {interview.status}
@@ -83,85 +83,77 @@ export default function InterviewCard({
 
                     <span
                         className={`rounded-full px-3 py-1 text-xs font-semibold ${interview.difficulty === "Easy"
-                            ? "bg-green-100 text-green-700"
-                            : interview.difficulty === "Medium"
-                                ? "bg-yellow-100 text-yellow-700"
-                                : "bg-red-100 text-red-700"
+                                ? "bg-green-100 text-green-700"
+                                : interview.difficulty === "Medium"
+                                    ? "bg-yellow-100 text-yellow-700"
+                                    : "bg-red-100 text-red-700"
                             }`}
                     >
                         {interview.difficulty}
                     </span>
 
-                    {/* {interview.techStack
-                        ?.split(",")
-                        .slice(0, 4)
-                        .map((tech: string) => (
-
-                            <span
-                                key={tech}
-                                className="rounded-full bg-slate-100 px-3 py-1 text-xs"
-                            >
-                                {tech.trim()}
-                            </span>
-
-                        ))} */}
-
                 </div>
 
-                <div className="mt-8 flex items-center justify-between">
-                    <DeleteInterviewButton interviewId={interview.id} />
+            </Link>
 
-                    {interview.status === "COMPLETED" ? (
+            {/* Actions - separate from navigation */}
 
-                        <div>
+            <div className="mt-8 flex items-center justify-between">
 
-                            <p className="text-sm text-gray-500">
-                                Overall Score
-                            </p>
+                <DeleteInterviewButton interviewId={interview.id} />
 
-                            <div className="mt-2 flex items-center gap-2">
+                {interview.status === "COMPLETED" ? (
 
-                                <Trophy className="text-yellow-500" />
+                    <div>
 
-                                <span className="text-3xl font-bold">
-                                    {interview.overallScore}/100
-                                </span>
+                        <p className="text-sm text-gray-500">
+                            Overall Score
+                        </p>
 
-                            </div>
+                        <div className="mt-2 flex items-center gap-2">
 
-                        </div>
+                            <Trophy className="text-yellow-500" />
 
-                    ) : (
-
-                        <div>
-
-                            <p className="text-sm text-gray-500">
-                                Interview Ready
-                            </p>
-
-                            <p className="mt-2 text-xl font-semibold">
-                                Continue Practice
-                            </p>
+                            <span className="text-3xl font-bold">
+                                {interview.overallScore}/100
+                            </span>
 
                         </div>
-
-                    )}
-
-                    <div className="flex items-center gap-2 font-semibold text-blue-600">
-
-                        {interview.status === "COMPLETED"
-                            ? "View Results"
-                            : "Continue"}
-
-                        <ArrowRight className="transition group-hover:translate-x-2" />
 
                     </div>
 
-                </div>
+                ) : (
+
+                    <div>
+
+                        <p className="text-sm text-gray-500">
+                            Interview Ready
+                        </p>
+
+                        <p className="mt-2 text-xl font-semibold">
+                            Continue Practice
+                        </p>
+
+                    </div>
+
+                )}
+
+                <Link
+                    href={interviewUrl}
+                    className="flex items-center gap-2 font-semibold text-blue-600"
+                >
+
+                    {interview.status === "COMPLETED"
+                        ? "View Results"
+                        : "Continue"}
+
+                    <ArrowRight className="transition group-hover:translate-x-2" />
+
+                </Link>
 
             </div>
 
-        </Link>
+        </div>
 
     );
 }

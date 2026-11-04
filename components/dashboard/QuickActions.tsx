@@ -1,68 +1,62 @@
 import Link from "next/link";
-import { ArrowRight, FileText, Mic, History } from "lucide-react";
+import { ArrowRight, FileText, Mic } from "lucide-react";
 
 export default function QuickActions() {
+
     return (
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid w-full gap-6 md:grid-cols-2">
+
+            {/* Interviews */}
 
             <Link
-                href="/dashboard/new"
-                className="group rounded-3xl border bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+                href="/dashboard/interviews"
+                className="group flex min-h-64 flex-col justify-between rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
             >
-                <Mic className="mb-6 h-10 w-10" />
 
-                <h2 className="text-2xl font-bold">
-                    Start Interview
-                </h2>
+                <div>
 
-                <p className="mt-2 text-blue-100">
-                    Practice AI-powered mock interviews tailored to your role.
-                </p>
+                    <Mic className="mb-6 h-10 w-10" />
+
+                    <h2 className="text-2xl font-bold">
+                        Interviews
+                    </h2>
+
+                    <p className="mt-3 max-w-sm text-blue-100">
+                        Practice AI-powered mock interviews, continue unfinished sessions, and review your previous results.
+                    </p>
+
+                </div>
 
                 <div className="mt-8 flex items-center gap-2 font-semibold">
-                    Start now
+                    View Interviews
                     <ArrowRight className="transition group-hover:translate-x-2" />
                 </div>
 
             </Link>
 
-            <Link
-                href="/dashboard/resume"
-                className="group rounded-3xl border bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
-            >
-                <FileText className="mb-6 h-10 w-10 text-emerald-600" />
-
-                <h2 className="text-2xl font-bold">
-                    Resume Analyzer
-                </h2>
-
-                <p className="mt-2 text-gray-500">
-                    Analyze ATS score, improve your resume, and check job fit.
-                </p>
-
-                <div className="mt-8 flex items-center gap-2 font-semibold text-emerald-600">
-                    Analyze Resume
-                    <ArrowRight className="transition group-hover:translate-x-2" />
-                </div>
-
-            </Link>
+            {/* Resumes */}
 
             <Link
                 href="/dashboard/resumes"
-                className="group rounded-3xl border bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+                className="group flex min-h-64 flex-col justify-between rounded-3xl border bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
             >
-                <History className="mb-6 h-10 w-10 text-purple-600" />
 
-                <h2 className="text-2xl font-bold">
-                    Resume History
-                </h2>
+                <div>
 
-                <p className="mt-2 text-gray-500">
-                    View your previous uploads, ATS scores, and AI analysis reports.
-                </p>
+                    <FileText className="mb-6 h-10 w-10 text-emerald-600" />
 
-                <div className="mt-8 flex items-center gap-2 font-semibold text-purple-600">
-                    View History
+                    <h2 className="text-2xl font-bold">
+                        Resumes
+                    </h2>
+
+                    <p className="mt-3 max-w-sm text-gray-500">
+                        Upload your resume, analyze ATS compatibility, check job matches, and review previous reports.
+                    </p>
+
+                </div>
+
+                <div className="mt-8 flex items-center gap-2 font-semibold text-emerald-600">
+                    View Resumes
                     <ArrowRight className="transition group-hover:translate-x-2" />
                 </div>
 
