@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, FileText, Mic } from "lucide-react";
+import { ArrowRight, FileText, Mic, History } from "lucide-react";
 
 export default function QuickActions() {
     return (
@@ -42,6 +42,27 @@ export default function QuickActions() {
 
                 <div className="mt-8 flex items-center gap-2 font-semibold text-emerald-600">
                     Analyze Resume
+                    <ArrowRight className="transition group-hover:translate-x-2" />
+                </div>
+
+            </Link>
+
+            <Link
+                href="/dashboard/resumes"
+                className="group rounded-3xl border bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+            >
+                <History className="mb-6 h-10 w-10 text-purple-600" />
+
+                <h2 className="text-2xl font-bold">
+                    Resume History
+                </h2>
+
+                <p className="mt-2 text-gray-500">
+                    View your previous uploads, ATS scores, and AI analysis reports.
+                </p>
+
+                <div className="mt-8 flex items-center gap-2 font-semibold text-purple-600">
+                    View History
                     <ArrowRight className="transition group-hover:translate-x-2" />
                 </div>
 

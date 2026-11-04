@@ -1,0 +1,190 @@
+
+D:\NextProject1\ai-interview-platform>tree "app" /F /A 
+Folder PATH listing for volume New Volume
+Volume serial number is 74D7-3F50
+D:\NEXTPROJECT1\AI-INTERVIEW-PLATFORM\APP
+|   favicon.ico
+|   globals.css
+|   layout.tsx
+|   page.tsx
+|   
++---(auth)
+|   +---login
+|   \---register
++---(public)
+|   |   page.tsx
+|   |   
+|   +---companies
+|   +---guides
+|   \---pricing
++---api
+|   \---auth
+|       \---[...nextauth]
+|               route.ts
+|               
++---companies
+|   |   layout.tsx
+|   |   page.tsx
+|   |   
+|   +---google
+|   |       page.tsx
+|   |       
+|   \---[name]
+|           page.tsx
+|           
++---dashboard
+|   |   page.tsx
+|   |   
+|   +---interview
+|   |   \---[id]
+|   |       |   page.tsx
+|   |       |   
+|   |       \---results
+|   |               page.tsx
+|   |               
+|   +---new
+|   |       page.tsx
+|   |       
+|   \---resume
+|       |   page.tsx
+|       |   
+|       \---[id]
+|               page.tsx
+|               
++---guides
+|   |   page.tsx
+|   |   
+|   \---[id]
+|           page.tsx
+|           
++---interviews
+|   |   page.tsx
+|   |   
+|   \---[id]
+|           page.tsx
+|           
++---login
+|       page.tsx
+|       
++---register
++---resume
+\---test
+        page.tsx
+        
+
+D:\NextProject1\ai-interview-platform>tree "components" /F /A 
+Folder PATH listing for volume New Volume
+Volume serial number is 00000292 74D7:3F50
+D:\NEXTPROJECT1\AI-INTERVIEW-PLATFORM\COMPONENTS
++---dashboard
+|       CompanyLogo.tsx
+|       DashboardHeader.tsx
+|       DeleteInterviewButton.tsx
+|       InterviewCard.tsx
+|       QuickActions.tsx
+|       ResumeButton.tsx
+|       StartInterviewButton.tsx
+|       StatsCard.tsx
+|       
++---interview
+|       InterviewCard.tsx
+|       InterviewForm.tsx
+|       InterviewPlayer.tsx
+|       
++---landing
+|       CTA.tsx
+|       FAQ.tsx
+|       Features.tsx
+|       Hero.tsx
+|       HowItWorks.tsx
+|       Testimonials.tsx
+|       
++---layout
+|       Footer.tsx
+|       Navbar.tsx
+|       
++---resume
+|       ResumeUploadForm.tsx
+|       
+\---ui
+        button.tsx
+        card.tsx
+        
+
+D:\NextProject1\ai-interview-platform>tree "lib" /F /A 
+Folder PATH listing for volume New Volume
+Volume serial number is 74D7-3F50
+D:\NEXTPROJECT1\AI-INTERVIEW-PLATFORM\LIB
+|   cloudinary.ts
+|   constants.ts
+|   dashboard.ts
+|   data.ts
+|   prisma.ts
+|   supabase.ts
+|   utils.ts
+|   validations.ts
+|   
++---actions
+|       createInterview.ts
+|       deleteInterview.ts
+|       evaluateResume.ts
+|       finishInterview.ts
+|       login.ts
+|       saveAnswer.ts
+|       uploadResume.ts
+|       
++---ai
+|       client.ts
+|       evaluateInterview.ts
+|       evaluatePrompt.ts
+|       evaluateResume.ts
+|       evaluationSchema.ts
+|       generateQuestions.ts
+|       prompt.ts
+|       resumePrompt.ts
+|       resumeSchema.ts
+|       schema.ts
+|       
++---cloudinary
+|       deleteResume.ts
+|       getResumeUrl.ts
+|       
++---resume
+|       extractText.ts
+|       
+\---services
+        evaluateInterview.service.ts
+        evaluateResume.service.ts
+        interview.service.ts
+        
+
+D:\NextProject1\ai-interview-platform>tree "prisma" /F /A 
+Folder PATH listing for volume New Volume
+Volume serial number is 000002B2 74D7:3F50
+D:\NEXTPROJECT1\AI-INTERVIEW-PLATFORM\PRISMA
+    schema.prisma
+    
+No subfolders exist 
+
+
+D:\NextProject1\ai-interview-platform>tree "public" /F /A 
+Folder PATH listing for volume New Volume
+Volume serial number is 00000221 74D7:3F50
+D:\NEXTPROJECT1\AI-INTERVIEW-PLATFORM\PUBLIC
+|   file.svg
+|   globe.svg
+|   next.svg
+|   vercel.svg
+|   window.svg
+|   
+\---uploads
+    \---resumes
+            1782631477469-Shweta Patil Resume3.pdf
+            
+
+D:\NextProject1\ai-interview-platform>tree "types" /F /A 
+Folder PATH listing for volume New Volume
+Volume serial number is 00000202 74D7:3F50
+D:\NEXTPROJECT1\AI-INTERVIEW-PLATFORM\TYPES
+No subfolders exist 
+
