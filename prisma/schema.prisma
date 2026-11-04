@@ -60,6 +60,8 @@ model Resume {
   user User @relation(fields: [userId], references: [id])
 
   createdAt DateTime @default(now())
+
+  interviews Interview[]
 }
 
 model Interview {
@@ -91,6 +93,10 @@ model Interview {
   questions InterviewQuestion[]
 
   createdAt DateTime @default(now())
+
+  resumeId String?
+
+  resume   Resume? @relation(fields: [resumeId], references: [id], onDelete: SetNull)
 }
 
 model InterviewQuestion {

@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 
 import { prisma } from "@/lib/prisma";
 import { evaluateResume } from "@/lib/actions/evaluateResume";
+import ResumeInterviewButton from "@/components/resume/ResumeInterviewButton";
 
 interface Props {
     params: Promise<{
@@ -100,7 +101,7 @@ export default async function ResumePage({
                         <span
                             className={
                                 (resume.jobMatchScore ?? 0) >= 80
-                                    ? "text-green-600"
+                                    ? "text-6xl font-bold text-green-600"
                                     : (resume.jobMatchScore ?? 0) >= 60
                                         ? "text-6xl font-bold text-yellow-500"
                                         : "text-6xl font-boldtext-red-500"
@@ -278,21 +279,23 @@ export default async function ResumePage({
             {/* Resume */}
 
             <div className="mt-8 rounded-2xl border bg-white p-8 shadow-sm">
-
                 <h2 className="text-2xl font-bold">
                     Uploaded Resume
                 </h2>
-
-                <a
-                    href={resume.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex rounded-xl bg-black px-6 py-3 text-white transition hover:bg-gray-800"
-                >
-                    View Resume
-                </a>
-
+                {/* Added flex, items-center, gap-4, and mt-6 here */}
+                <div className="mt-6 flex items-center gap-4">
+                    <a
+                        href={resume.fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex rounded-xl bg-black px-6 py-3 text-white transition hover:bg-gray-800"
+                    >
+                        View Resume
+                    </a>
+                    <ResumeInterviewButton resumeId={resume.id} />
+                </div>
             </div>
+
 
         </main>
     );

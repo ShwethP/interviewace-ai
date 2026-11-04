@@ -1,5 +1,6 @@
 import { ai } from "./client";
 import { buildInterviewPrompt } from "./prompt";
+import { buildResumeInterviewPrompt } from "./resumeInterviewPrompt";
 import {
     InterviewResponse,
     InterviewResponseSchema,
@@ -14,18 +15,14 @@ interface GenerateInput {
     techStack: string;
 }
 
-export async function generateQuestions(
-    data: GenerateInput
+async function requestQuestions(
+    prompt: string
 ): Promise<InterviewResponse> {
-
-    const prompt = buildInterviewPrompt(data);
 
     for (let i = 0; i < 3; i++) {
         try {
             const response = await ai.chat.completions.create({
-                // model: "openai/gpt-oss-20b:free",
                 model: "openrouter/free",
-
 
                 messages: [
                     {
@@ -55,4 +52,26 @@ export async function generateQuestions(
     }
 
     throw new Error("Unable to generate interview.");
+}
+
+export async function generateQuestions(
+    data: GenerateInput
+): Promise<InterviewResponse> {
+
+    return requestQuestions(buildInterviewPrompt(data));
+}
+
+export async function generateResumeQuestions(data: {
+    resumeText: string;
+    jobDescription?: string | null;
+    strengths: string[];
+    improvements: string[];
+    missingSkills: string[];
+    interviewPreparation: string[];
+    likelyQuestions: string[];
+}): Promise<InterviewResponse> {
+
+    const prompt = buildResumeInterviewPrompt(data);
+
+    return requestQuestions(prompt);
 }
