@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 import { finishInterview } from "@/lib/actions/finishInterview";
 import { saveAnswer } from "@/lib/actions/saveAnswer";
@@ -119,10 +121,17 @@ export default function InterviewPlayer({
 
     return (
         <div>
-
-            <h1 className="text-3xl font-bold">
-                {interview.company}
-            </h1>
+            <div className="grid w-full gap-150 md:grid-cols-2">
+                <h1 className="text-3xl font-bold">
+                    {interview.company}
+                </h1>
+                <Link
+                    href="/dashboard/interviews"
+                    className="mb-6 inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-black"
+                >
+                    <ArrowLeft className="h-4 w-4" />
+                    Quit
+                </Link></div>
 
             <p className="mt-2 text-gray-500">
                 {interview.role}

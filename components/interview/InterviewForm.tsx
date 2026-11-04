@@ -1,6 +1,29 @@
 "use client";
 
+import { useFormStatus } from "react-dom";
+import { Loader2 } from "lucide-react";
+
 import { createInterview } from "@/lib/actions/createInterview";
+function GenerateInterviewButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button
+            type="submit"
+            disabled={pending}
+            className="flex items-center gap-2 rounded-lg bg-black px-6 py-3 text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+            {pending ? (
+                <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Generating Questions...
+                </>
+            ) : (
+                "Generate AI Interview"
+            )}
+        </button>
+    );
+}
 
 export default function InterviewForm() {
     return (
@@ -62,11 +85,7 @@ export default function InterviewForm() {
                 className="w-full rounded border p-3"
             />
 
-            <button
-                className="rounded-lg bg-black px-6 py-3 text-white"
-            >
-                Generate AI Interview
-            </button>
+            <GenerateInterviewButton />
         </form>
     );
 }

@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 interface Props {
     params: Promise<{
@@ -45,12 +47,15 @@ export default async function ResultsPage({
             ? "Passed"
             : "Needs Improvement";
 
-    if (!interview) {
-        notFound();
-    }
-
     return (
         <main className="mx-auto max-w-5xl p-10">
+            <Link
+                href="/dashboard/interviews"
+                className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black"
+            >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Interviews
+            </Link>
 
             <div className="rounded-xl border bg-white p-8 shadow-sm">
 
