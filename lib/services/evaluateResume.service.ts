@@ -25,7 +25,6 @@ export async function evaluateResumeService(
         text,
         resume.jobDescription ?? undefined
     );
-    console.log('result to database*****************', result);
 
     try {
         await prisma.resume.update({

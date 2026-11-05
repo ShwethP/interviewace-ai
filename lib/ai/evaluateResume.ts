@@ -26,7 +26,6 @@ export async function evaluateResume(
     });
 
     const content = response.choices[0].message.content ?? "";
-    console.log("content from openAI resume ...****************", content);
 
     const match = content.match(/\{[\s\S]*\}/);
 
