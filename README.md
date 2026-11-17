@@ -212,6 +212,7 @@ Screenshots of the application will be available here.
 ## 🎥 Application Demo
 
 [Watch the InterviewAce AI demo](docs/demo/README.md)
+[Visit Web and test](https://interviewace-ai-sandy.vercel.app)
 
 ## 🔮 Future Improvements
 
