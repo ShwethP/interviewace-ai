@@ -146,7 +146,7 @@ ai-interview-platform/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-interview-platform.git
+git clone https://github.com/ShwethP/ai-interview-platform.git
 
 cd ai-interview-platform
 ```
@@ -226,7 +226,7 @@ Screenshots of the application will be available here.
 
 Full-Stack Software Developer
 
-[LinkedIn](YOUR_LINKEDIN_URL) · [GitHub](YOUR_GITHUB_URL)
+[LinkedIn]() · [GitHub](https://github.com/ShwethP)
 
 ---
 
